@@ -20,12 +20,12 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
 
-	"gorm.io/gen/helper"
-	"gorm.io/gen/internal/generate"
-	"gorm.io/gen/internal/model"
-	"gorm.io/gen/internal/parser"
-	tmpl "gorm.io/gen/internal/template"
-	"gorm.io/gen/internal/utils/pools"
+	"github.com/Edward-Alphonse/gen/helper"
+	"github.com/Edward-Alphonse/gen/internal/generate"
+	"github.com/Edward-Alphonse/gen/internal/model"
+	"github.com/Edward-Alphonse/gen/internal/parser"
+	tmpl "github.com/Edward-Alphonse/gen/internal/template"
+	"github.com/Edward-Alphonse/gen/internal/utils/pools"
 )
 
 // T generic type
@@ -267,10 +267,11 @@ func (g *Generator) Execute() {
 		panic("generate model struct fail")
 	}
 
-	if err := g.generateQueryFile(); err != nil {
-		g.db.Logger.Error(context.Background(), "generate query code fail: %s", err)
-		panic("generate query code fail")
-	}
+	// 注释掉
+	//if err := g.generateQueryFile(); err != nil {
+	//	g.db.Logger.Error(context.Background(), "generate query code fail: %s", err)
+	//	panic("generate query code fail")
+	//}
 
 	g.info("Generate code done.")
 }
